@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option go_package = "github.com/a-camarillo/grpc-speed/proto";
+
+service SpeedFetcher {
+  rpc FetchSpeed(stream TravelInfo) returns (stream TravelResponse) {}
+}
+
+message TravelInfo {
+  int32 position = 1;
+  int32 time = 2;
+}
+
+message TravelResponse {
+ int32 averageSpeed = 1; 
+}
+
+
